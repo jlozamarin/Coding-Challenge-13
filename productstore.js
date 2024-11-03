@@ -13,7 +13,6 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
     .then(products => {
         products.forEach(product => { 
             const listItem = document.createElement('li');
-            listItem.textContent = `${product.fields.name} - $${product.fields.price}`; 
 
 // Task 3: Display Product Details Dyanmically
             listItem.innerHTML = `
