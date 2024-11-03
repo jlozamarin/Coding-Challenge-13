@@ -11,10 +11,19 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
         return response.json(); // converting the response to JSON
     })
     .then(products => {
-        products.forEach(product => { // Loop through each product
+        products.forEach(product => { 
             const listItem = document.createElement('li');
-            listItem.textContent = `${product.fields.name} - $${product.fields.price}`; // Access correct properties
-            productList.appendChild(listItem); // Append each item to the list
+            listItem.textContent = `${product.fields.name} - $${product.fields.price}`; 
+
+// Task 3: Display Product Details Dyanmically
+            listItem.innerHTML = `
+                <h2>${product.fields.name}</h2> 
+                <p><strong>Company:</strong> ${product.fields.company}</p> 
+                <p><strong>Price:</strong> $${product.fields.price}</p> 
+                <img src="${product.fields.image}" alt="${product.fields.name}" style="width: 200px; height: 200px;"> 
+            `; 
+            
+            productList.appendChild(listItem);  // appending the list item to the product list
         });
     })
     .catch(error => {
