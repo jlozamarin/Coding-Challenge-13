@@ -3,10 +3,6 @@
 // Task 2: Fetch Products from the API Using Fetch and Promises
 const productList = document.getElementById('productList');
 
-
-const errorMessageContainer = document.createElement('div'); // create a div element for error message
-document.body.appendChild(errorMessageContainer); 
-
 fetch('https://www.course-api.com/javascript-store-products') // getting data from the API
     .then(response => {
         if (!response.ok) {
@@ -17,8 +13,6 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
     .then(products => {
         products.forEach(product => { 
             const listItem = document.createElement('li');
-            console.log('Product:', product);
-            console.log('Image URL:', product.fields.image); // check the image URL
 
 // Task 3: Display Product Details Dyanmically
 const imgElement = document.createElement('img');
@@ -28,8 +22,8 @@ const imgElement = document.createElement('img');
                 <h2>${product.fields.name}</h2> 
                 <p><strong>Company:</strong> ${product.fields.company}</p> 
                 <p><strong>Price:</strong> $${product.fields.price}</p> 
+                <img src="${product.image}" alt="${product.title}" style="width: 200px; height: 200px;">
             `; 
-            listItem.appendChild(imgElement); // appending the image element to the list item
             productList.appendChild(listItem);  // appending the list item to the product list
         });
     })
