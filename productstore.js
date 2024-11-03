@@ -15,9 +15,6 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
             const listItem = document.createElement('li');
 
 // Task 3: Display Product Details Dyanmically
-const imgElement = document.createElement('img');
-            imgElement.src = product.fields.image || 'path/to/fallback-image.jpg'; // setting the image 
-
             listItem.innerHTML = `
                 <h2>${product.fields.name}</h2> 
                 <p><strong>Company:</strong> ${product.fields.company}</p> 
