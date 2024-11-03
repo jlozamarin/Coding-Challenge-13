@@ -26,7 +26,8 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
             productList.appendChild(listItem);  // appending the list item to the product list
         });
     })
+    // Task 4: Handle Errors Gracefully
     .catch(error => {
         console.error('Problem occurred while fetching data:', error); // error handling
+        errorMessageContainer.textContent = "Failed to load products. Please try again later."; // display error message
     });
-
