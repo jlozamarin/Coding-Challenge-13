@@ -21,9 +21,6 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
                 <p><strong>Price:</strong> $${product.fields.price}</p> 
                 <img src="${product.fields.image}" alt="${product.fields.name}" style="width: 200px; height: 200px;"> 
             `; 
-            const imgElement = document.createElement('img');
-imgElement.src = product.fields.image || 'path/to/fallback-image.jpg'; // setting the image source
-
             productList.appendChild(listItem);  // appending the list item to the product list
         });
     })
