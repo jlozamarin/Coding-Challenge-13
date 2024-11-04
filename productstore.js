@@ -2,6 +2,7 @@
 
 // Task 2: Fetch Products from the API Using Fetch and Promises
 const productList = document.getElementById('productList');
+const errorMessageContainer = document.getElementById('error-message');
 
 fetch('https://www.course-api.com/javascript-store-products') // getting data from the API
     .then(response => {
@@ -16,10 +17,10 @@ fetch('https://www.course-api.com/javascript-store-products') // getting data fr
 
 // Task 3: Display Product Details Dyanmically
             listItem.innerHTML = `
-                <h2>${product.fields.name}</h2> 
+          <h2>${product.fields.name}</h2> 
                 <p><strong>Company:</strong> ${product.fields.company}</p> 
                 <p><strong>Price:</strong> $${product.fields.price}</p> 
-                <img src="${product.image}" alt="${product.title}" style="width: 200px; height: 200px;">
+                <img src="${product.fields.image[0].url}" alt="${product.fields.name}" style="width: 200px; height: 200px;">
             `; 
             productList.appendChild(listItem);  // appending the list item to the product list
         });
